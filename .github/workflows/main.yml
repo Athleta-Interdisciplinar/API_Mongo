@@ -27,4 +27,4 @@ jobs:
         # ID of the service to deploy
         service-id: ${{secrets.id_main}}
         # A Render API key
-        api-key: ${{secrets.secrets_key}}
+        api-key: ${{secrets.key}}
