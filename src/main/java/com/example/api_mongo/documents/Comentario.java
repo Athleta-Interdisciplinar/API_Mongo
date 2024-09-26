@@ -1,13 +1,13 @@
 package com.example.api_mongo.documents;
 
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import java.util.Date;
 
 @Document("comentarios")
 public class Comentario {
-    @Id
+    @MongoId
     private String id;
 
     private String idPostReferente;
