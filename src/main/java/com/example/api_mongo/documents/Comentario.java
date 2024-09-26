@@ -27,4 +27,54 @@ public class Comentario {
         this.texto = texto;
         this.data = data;
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getIdPostReferente() {
+        return idPostReferente;
+    }
+
+    public void setIdPostReferente(String idPostReferente) {
+        this.idPostReferente = idPostReferente;
+    }
+
+    public String getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(String idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
+    public String getIdUsuarioReferente() {
+        return idUsuarioReferente;
+    }
+
+    public void setIdUsuarioReferente(String idUsuarioReferente) {
+        this.idUsuarioReferente = idUsuarioReferente;
+    }
+
+    public String getTexto() {
+        return texto;
+    }
+
+    public void setTexto(String texto) {
+        this.texto = texto;
+    }
+
+    public Date getData() {
+        return data;
+    }
+
+    public void setData(Date data) {
+        this.data = data;
+    }
+
+    public Comentario(){}
 }
