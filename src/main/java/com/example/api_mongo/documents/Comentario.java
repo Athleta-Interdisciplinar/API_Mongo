@@ -7,18 +7,6 @@ import java.util.Date;
 
 @Document("comentarios")
 public class Comentario {
-
-    /*
-    	Comentário{
-	Id:
-	Id_post_referente
-	Id_usuario
-	Id_usuario_referente
-	Texto
-	data
-	}
-
-     */
     @Id
     private String id;
 
@@ -30,4 +18,13 @@ public class Comentario {
     private String texto;
 
     private Date data;
+
+    public Comentario(String id, String idPostReferente, String idUsuario, String idUsuarioReferente, String texto, Date data) {
+        this.id = id;
+        this.idPostReferente = idPostReferente;
+        this.idUsuario = idUsuario;
+        this.idUsuarioReferente = idUsuarioReferente;
+        this.texto = texto;
+        this.data = data;
+    }
 }
