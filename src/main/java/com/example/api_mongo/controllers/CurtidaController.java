@@ -30,4 +30,9 @@ public class CurtidaController {
     public ResponseEntity<List<Curtida>> listarPorIdPostReferent(@PathVariable String idPostReferente){
         return ResponseEntity.status(HttpStatus.OK).body(curtidaService.listarPorIdPostReferente(idPostReferente));
     }
+
+    @GetMapping("/keepalive")
+    public ResponseEntity<?> keepAlive(){
+        return ResponseEntity.status(HttpStatus.OK).body(true);
+    }
 }
