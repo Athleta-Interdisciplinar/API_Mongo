@@ -41,7 +41,7 @@ public class PostagemService {
     }
 
     public List<Postagem> listarPostagens(int pagina, int tamanho) {
-        Pageable pageable = PageRequest.of(pagina, tamanho);
+        Pageable pageable = PageRequest.of(pagina, tamanho, Sort.by(Sort.Direction.DESC, "data"));
         Page<Postagem> postagens = postagemRepository.findAll(pageable);
         return postagens.getContent();
     }
