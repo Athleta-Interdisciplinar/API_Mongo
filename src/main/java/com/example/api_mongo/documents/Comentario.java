@@ -12,6 +12,8 @@ public class Comentario {
 
     private String idPostReferente;
     private String idUsuario;
+    private String username;
+    private String userFoto;
 
     private String idUsuarioReferente;
 
@@ -19,14 +21,18 @@ public class Comentario {
 
     private Date data;
 
-    public Comentario(String id, String idPostReferente, String idUsuario, String idUsuarioReferente, String texto, Date data) {
+    public Comentario(String id, String idPostReferente, String idUsuario, String username, String userFoto, String idUsuarioReferente, String texto, Date data) {
         this.id = id;
         this.idPostReferente = idPostReferente;
         this.idUsuario = idUsuario;
+        this.username = username;
+        this.userFoto = userFoto;
         this.idUsuarioReferente = idUsuarioReferente;
         this.texto = texto;
         this.data = data;
     }
+
+    public Comentario(){}
 
     public String getId() {
         return id;
@@ -52,6 +58,22 @@ public class Comentario {
         this.idUsuario = idUsuario;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getUserFoto() {
+        return userFoto;
+    }
+
+    public void setUserFoto(String userFoto) {
+        this.userFoto = userFoto;
+    }
+
     public String getIdUsuarioReferente() {
         return idUsuarioReferente;
     }
@@ -75,6 +97,4 @@ public class Comentario {
     public void setData(Date data) {
         this.data = data;
     }
-
-    public Comentario(){}
 }
