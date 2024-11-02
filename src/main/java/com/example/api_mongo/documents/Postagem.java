@@ -3,7 +3,6 @@ package com.example.api_mongo.documents;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -20,8 +19,9 @@ public class Postagem {
     private List<String> compartilhamento;
     private String usuarioId;
     private Date data;
+    private int idForum;
 
-    public Postagem(String id, String legenda, String imagem, String username, String userFoto, List<String> curtidas, List<String> compartilhamento, String usuarioId, Date data) {
+    public Postagem(String id, String legenda, String imagem, String username, String userFoto, List<String> curtidas, List<String> compartilhamento, String usuarioId, Date data, int idForum) {
         this.id = id;
         this.legenda = legenda;
         this.imagem = imagem;
@@ -31,6 +31,7 @@ public class Postagem {
         this.compartilhamento = compartilhamento;
         this.usuarioId = usuarioId;
         this.data = data;
+        this.idForum = idForum;
     }
 
     public String getId() {
@@ -103,5 +104,13 @@ public class Postagem {
 
     public void setData(Date data) {
         this.data = data;
+    }
+
+    public int getIdForum() {
+        return idForum;
+    }
+
+    public void setIdForum(int idForum) {
+        this.idForum = idForum;
     }
 }

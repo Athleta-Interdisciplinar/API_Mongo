@@ -62,6 +62,20 @@ public class PostagemController {
         }
     }
 
+    @GetMapping("/listar/forum")
+    public ResponseEntity<List<Postagem>> listarPostagensPorForum(@RequestParam(defaultValue = "0") int pagina,
+                                                                  @RequestParam(defaultValue = "10") int tamanho,
+                                                                  @RequestParam(defaultValue = "0") int idForum
+    ){
+        try{
+            List<Postagem> listaPostagens = postagemService.listarPostagensPorForum(pagina, tamanho, idForum);
+            return ResponseEntity.status(HttpStatus.OK).body(listaPostagens);
+
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+        }
+    }
+
     @PostMapping("/like/{id}/{username}")
     public ResponseEntity<Postagem> interaçãoCurtirPostagem(@PathVariable String id, @PathVariable String username){
         try{

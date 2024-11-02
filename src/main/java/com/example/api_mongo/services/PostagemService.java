@@ -50,6 +50,12 @@ public class PostagemService {
         return postagens.getContent();
     }
 
+    public List<Postagem> listarPostagensPorForum(int pagina, int tamanho, int idForum){
+        Pageable pageable = PageRequest.of(pagina, tamanho, Sort.by(Sort.Direction.DESC, "data"));
+        Page<Postagem> postagens = postagemRepository.findAllByIdForum(pageable,idForum);
+        return postagens.getContent();
+    }
+
     public Postagem adicionarCurtida(String id, String username){
         Postagem postagem = postagemRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Postagem não encontrada"));
