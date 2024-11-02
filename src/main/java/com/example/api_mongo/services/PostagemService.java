@@ -10,9 +10,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-import java.util.TimeZone;
+import java.util.*;
 
 @Service
 public class PostagemService {
@@ -50,6 +48,27 @@ public class PostagemService {
         Pageable pageable = PageRequest.of(pagina, tamanho, Sort.by(Sort.Direction.DESC, "data"));
         Page<Postagem> postagens = postagemRepository.findAllByUsuarioId(pageable, usuarioId);
         return postagens.getContent();
+    }
+
+    public Postagem adicionarCurtida(String id, String username){
+        Postagem postagem = postagemRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Postagem não encontrada"));
+
+        List<String> curtidas = postagem.getCurtidas();
+
+        if (curtidas == null) {
+            curtidas = new ArrayList<>();
+            postagem.setCurtidas(curtidas);
+        }
+
+        if (curtidas.contains(username)) {
+            curtidas.remove(username);
+        } else {
+            curtidas.add(username);
+        }
+
+        postagemRepository.save(postagem);
+        return postagem;
     }
 
     public void excluirPostagem(String id){

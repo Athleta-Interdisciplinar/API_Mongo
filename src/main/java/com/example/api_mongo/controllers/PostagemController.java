@@ -61,4 +61,14 @@ public class PostagemController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
         }
     }
+
+    @PostMapping("/like/{id}/{username}")
+    public ResponseEntity<Postagem> interaçãoCurtirPostagem(@PathVariable String id, @PathVariable String username){
+        try{
+            Postagem response = postagemService.adicionarCurtida(id,username);
+            return ResponseEntity.status(HttpStatus.OK).body(response);
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+        }
+    }
 }

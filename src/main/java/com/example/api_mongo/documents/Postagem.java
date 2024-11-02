@@ -3,6 +3,7 @@ package com.example.api_mongo.documents;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
