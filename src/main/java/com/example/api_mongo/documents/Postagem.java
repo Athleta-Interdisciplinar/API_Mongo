@@ -19,9 +19,9 @@ public class Postagem {
     private List<String> compartilhamento;
     private String usuarioId;
     private Date data;
-    private int idForum;
+    private List<String> foruns;
 
-    public Postagem(String id, String legenda, String imagem, String username, String userFoto, List<String> curtidas, List<String> compartilhamento, String usuarioId, Date data, int idForum) {
+    public Postagem(String id, String legenda, String imagem, String username, String userFoto, List<String> curtidas, List<String> compartilhamento, String usuarioId, Date data, List<String> foruns) {
         this.id = id;
         this.legenda = legenda;
         this.imagem = imagem;
@@ -31,7 +31,7 @@ public class Postagem {
         this.compartilhamento = compartilhamento;
         this.usuarioId = usuarioId;
         this.data = data;
-        this.idForum = idForum;
+        this.foruns = foruns;
     }
 
     public String getId() {
@@ -106,11 +106,11 @@ public class Postagem {
         this.data = data;
     }
 
-    public int getIdForum() {
-        return idForum;
+    public List<String> getForuns() {
+        return foruns;
     }
 
-    public void setIdForum(int idForum) {
-        this.idForum = idForum;
+    public void setForuns(List<String> foruns) {
+        this.foruns = foruns;
     }
 }

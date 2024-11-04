@@ -62,13 +62,13 @@ public class PostagemController {
         }
     }
 
-    @GetMapping("/listar/forum")
+    @GetMapping("/listar/{forum}")
     public ResponseEntity<List<Postagem>> listarPostagensPorForum(@RequestParam(defaultValue = "0") int pagina,
                                                                   @RequestParam(defaultValue = "10") int tamanho,
-                                                                  @RequestParam(defaultValue = "0") int idForum
+                                                                  @PathVariable String forum
     ){
         try{
-            List<Postagem> listaPostagens = postagemService.listarPostagensPorForum(pagina, tamanho, idForum);
+            List<Postagem> listaPostagens = postagemService.listarPostagensPorForum(pagina, tamanho, forum);
             return ResponseEntity.status(HttpStatus.OK).body(listaPostagens);
 
         }catch (Exception e){
