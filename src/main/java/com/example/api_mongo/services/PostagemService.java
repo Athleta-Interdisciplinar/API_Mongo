@@ -50,9 +50,9 @@ public class PostagemService {
         return postagens.getContent();
     }
 
-    public List<Postagem> listarPostagensPorForum(int pagina, int tamanho, int idForum){
+    public List<Postagem> listarPostagensPorForum(int pagina, int tamanho, String forum){
         Pageable pageable = PageRequest.of(pagina, tamanho, Sort.by(Sort.Direction.DESC, "data"));
-        Page<Postagem> postagens = postagemRepository.findAllByIdForum(pageable,idForum);
+        Page<Postagem> postagens = postagemRepository.findByForunsContaining(forum,pageable);
         return postagens.getContent();
     }
 
